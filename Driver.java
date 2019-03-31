@@ -1,7 +1,7 @@
 public class Driver {
   public static void main(String[] args) {
-    MyLinkedList t1 = new MyLinkedList();
-    MyLinkedList t2 = new MyLinkedList();
+    MyLinkedList<Integer> t1 = new MyLinkedList<Integer>();
+    MyLinkedList<Integer> t2 = new MyLinkedList<Integer>();
 
     //for (int i = 0; i < 100000; ++i)
       //t1.add(i + 1);

@@ -183,4 +183,9 @@ public class MyLinkedList<E> {
     m_end = other.m_end; //The other end is now the actual end
     other.m_size = 0; //Sets size to 0 so the other MyLinkedList "disappears"
   }
+
+  public E removeFront() {
+    E temp = remove(0);
+    return temp;
+  }
 }
