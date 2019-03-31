@@ -3,14 +3,16 @@ public class Driver {
     MyLinkedList<Integer> t1 = new MyLinkedList<Integer>();
     MyLinkedList<Integer> t2 = new MyLinkedList<Integer>();
 
-    //for (int i = 0; i < 100000; ++i)
-      //t1.add(i + 1);
+    for (int i = 0; i < 10; ++i)
+      t1.add(i + 1);
 
-    //for (int i = 0; i < 100000; ++i)
-      //t2.add(i + 10);
+    for (int i = 0; i < 10; ++i)
+      t2.add(i + 10);
 
     t1.add(69);
     t2.add(10);
+    t1.removeFront();
+    t2.removeFront();
     System.out.println(t1);
     System.out.println(t2);
 
