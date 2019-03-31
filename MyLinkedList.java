@@ -10,6 +10,12 @@ public class MyLinkedList {
     m_end = null; //nothing in here
   }
 
+  public void clear() {
+    m_size = 0;
+    m_start = null;
+    m_end = null;
+  }
+
   //As explained in class, only MyLinkedList has access to all Nodes. Anything that
   //returns Nodes should be private and only be used right in this class.
   private Node getNthNode(int index) {
