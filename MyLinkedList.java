@@ -41,7 +41,7 @@ public class MyLinkedList {
     return current;
   }
 
-  public boolean add(Integer value) {
+  public boolean add(E value) {
     if (m_size == 0) { //If it's an empty list I have to put in a start
       m_start = new Node(value, null, null); //One item, nothing to left or right
       m_end = m_start; //Originally I made a new Node here. Thanks Ethan for tipping me off on this!
