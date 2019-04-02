@@ -14,10 +14,24 @@ public class Radix {
 
       @SuppressWarnings("unchecked")
       MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
+      while (numbers.size() > 0) {
+        int num = numbers.removeFront();
+        System.out.println(getNthDigit(num, digitsFromRight));
+        if (Math.abs(num) == num) { //positive #
+          buckets[getNthDigit(num, digitsFromRight) + 10].add(num); //thx Jerry for explanation, would've done 10 conditionals otherwise
+          digitsLeft = true;
+        }
 
+        else {//negative #
+          buckets[9 - getNthDigit(num, digitsFromRight)].add(num);
+          digitsLeft = true;
+        }
+      }
 
-      System.out.println(numbers);
+      ++digitsFromRight;
     }
+
+    System.out.println(numbers);
   }
 
   private static int getNthDigit(int input, int digitsFromRight) {
