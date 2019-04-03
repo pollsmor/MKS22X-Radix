@@ -31,15 +31,13 @@ public class Radix {
       }
 
       ++digitsFromRight;
-      for (int i = 0; i < buckets.length; ++i)
-        System.out.println(buckets[i]);
 
       for (int i = 0; i < buckets.length; ++i) {
         while (buckets[i].size() > 0) {
-          //System.out.println("lol");
           int num = buckets[i].removeFront();
-          //System.out.println(num);
           numbers.add(num);
+          System.out.println(numbers);
+          //System.out.println(buckets[i]);
         }
       }
     }

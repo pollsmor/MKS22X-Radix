@@ -185,7 +185,6 @@ public class MyLinkedList<E> {
   }
 
   public E removeFront() {
-    E temp = remove(0);
-    return temp;
+    return remove(0);
   }
 }
