@@ -3,15 +3,14 @@ import java.util.Arrays;
 public class Radix {
   //int[] test = {1, 3, 90, 9841, 7519, 958};
   public static void radixsort(int[] data) {
-    int maxDigits = 0;
+    int maxDigits = findDigits(data);
 
     int digitsFromRight = 1;
     MyLinkedList<Integer> numbers = new MyLinkedList<Integer>();
     for (int i = 0; i < data.length; ++i)
       numbers.add(data[i]);
 
-    while (digitsLeft) {
-      digitsLeft = false;
+    while (digitsFromRight <= maxDigits) {
 
       @SuppressWarnings("unchecked")
       MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
@@ -22,12 +21,10 @@ public class Radix {
         int num = numbers.removeFront();
         if (Math.abs(num) == num) { //positive #
           buckets[getNthDigit(num, digitsFromRight) + 10].add(num); //thx Jerry for explanation, would've done 10 conditionals otherwise
-          digitsLeft = true;
         }
 
         else { //negative #
           buckets[9 - getNthDigit(num, digitsFromRight)].add(num);
-          digitsLeft = true;
         }
       }
 
@@ -37,7 +34,6 @@ public class Radix {
         while (buckets[i].size() > 0) {
           int num = buckets[i].removeFront();
           numbers.add(num);
-          System.out.println(numbers);
           //System.out.println(buckets[i]);
         }
       }
@@ -60,7 +56,7 @@ public class Radix {
     return 0;
   }
 
-  private static int findMaxNum(int[] data) {
+  private static int findDigits(int[] data) {
     //Empty list, shouldn't ever happen?
     if (data.length == 0)
       return 0;
@@ -70,6 +66,6 @@ public class Radix {
       if (Math.abs(data[i]) > max)
         max = Math.abs(data[i]);
 
-    return (int)Math.log10(max) + 1; //finds the exponent 
+    return (int)Math.log10(max) + 1; //finds the exponent
   }
 }
