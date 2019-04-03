@@ -3,7 +3,8 @@ import java.util.Arrays;
 public class Radix {
   //int[] test = {1, 3, 90, 9841, 7519, 958};
   public static void radixsort(int[] data) {
-    boolean digitsLeft = true;
+    int maxDigits = 0;
+
     int digitsFromRight = 1;
     MyLinkedList<Integer> numbers = new MyLinkedList<Integer>();
     for (int i = 0; i < data.length; ++i)
@@ -57,5 +58,18 @@ public class Radix {
     }
 
     return 0;
+  }
+
+  private static int findMaxNum(int[] data) {
+    //Empty list, shouldn't ever happen?
+    if (data.length == 0)
+      return 0;
+
+    int max = Math.abs(data[0]); //"base", also using abs since all we care about is digits not the sign
+    for (int i = 0; i < data.length; ++i)
+      if (Math.abs(data[i]) > max)
+        max = Math.abs(data[i]);
+
+    return (int)Math.log10(max) + 1; //finds the exponent 
   }
 }
