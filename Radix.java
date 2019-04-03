@@ -49,7 +49,7 @@ public class Radix {
       --digitsFromRight;
     }
 
-    return input % 10;
+    return Math.abs(input % 10);
   }
 
   private static int findDigits(int[] data) {
