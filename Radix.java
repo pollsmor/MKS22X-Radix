@@ -41,19 +41,15 @@ public class Radix {
 
     for (int i = 0; i < data.length; ++i)
       data[i] = numbers.removeFront();
-
-    System.out.println(Arrays.toString(data));
   }
 
   public static int getNthDigit(int input, int digitsFromRight) {
-    String num = String.valueOf(input);
-    char[] digits = num.toCharArray();
-
-    if (digits.length - digitsFromRight >= 0) {
-      return Character.getNumericValue(digits[digits.length - digitsFromRight]);
+    while (digitsFromRight > 1) {
+      input /= 10;
+      --digitsFromRight;
     }
 
-    return 0;
+    return input % 10;
   }
 
   private static int findDigits(int[] data) {
